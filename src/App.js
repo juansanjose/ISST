@@ -7,6 +7,7 @@ import Home from './routes/Home.js';
 import Login from './routes/Login.jsx';
 import AreaCliente from './routes/AreaCliente.jsx';
 import Gestion from './routes/Gestion.jsx';
+import Registro from './routes/Registro.jsx';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
 		<Navbar.Collapse id="basic-navbar-nav">
 		  <Nav className="ms-auto">
 			<Nav.Link as={Link} to="/">Inicio</Nav.Link>
+			<Nav.Link as={Link} to="/registro">Registro</Nav.Link>
 			<Nav.Link as={Link} to="/login"><Button variant="outline-dark">Iniciar sesión</Button></Nav.Link>
 		  </Nav>
 		</Navbar.Collapse>
@@ -31,6 +33,7 @@ function App() {
 	  <Route path="/login" element={<Login />} />
 	  <Route path="/areacliente" element={<AreaCliente />} />
 	  <Route path="/gestion" element={<Gestion />} />
+	  <Route path="/registro" element={<Registro />} />
     </Routes>
 	{/*Rutas*/}
 	{/*Footer*/}
