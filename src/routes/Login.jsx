@@ -18,7 +18,9 @@ export default function Login() {
 	  <Form.Group className="col-6 mx-auto p-2" controlId="formBasicPassword">
 		<Form.Control type="password" placeholder="Contraseña" />
 	  </Form.Group>
-	  <Button as={Link} to="/gestion" variant="primary" className="col-6 btn-dark p-2" type="submit"> Iniciar Sesión</Button>
+	  <Button as={Link} to="/areagestor" variant="primary" className="col-6 btn-dark p-2 m-1" type="submit"> Iniciar Sesión (Gestor)</Button>
+	  <Button as={Link} to="/arearepartidor" variant="primary" className="col-6 btn-dark p-2" type="submit"> Iniciar Sesión (Repartidor)</Button>
+	  <Button as={Link} to="/areacliente" variant="primary" className="col-6 btn-dark p-2 m-1" type="submit"> Iniciar Sesión (Cliente)</Button>
 	</Form>
 	</div>
   );
