@@ -4,11 +4,16 @@ import { useContext } from 'react';
 import {Link } from "react-router-dom";
 
 
-export default function Rrgistro() {
+export default function Registro() {
 
   return (
     <div>
-		registro
+		<h1 className="text-center">REGISTRO CUENTA CLIENTE</h1>
+		<h3 className="text-center">¿Qué eres?</h3>
+		<div className="d-flex justify-content-around">
+			<Button as={Link} to="/registroempresa" variant="primary" className=" col-2 btn-dark py-4" type="submit">Empresa</Button>
+			<Button as={Link} to="/registroparticular" variant="primary" className="col-2 btn-dark py-4" type="submit">Particular</Button>
+		</div>
 	</div>
   );
 }
