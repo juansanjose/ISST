@@ -26,7 +26,7 @@ export default function AreaGestor () {
 		</thead>
 		<tbody>
 			<tr>
-				<td>1 </td>
+				<td><Link to="/seguimientocliente">1</Link></td>
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
 				<td><Link to="/perfilrepartidor">Lorem ipsum dolor sit amet, consectetur adipiscing.</Link></td>
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
@@ -34,7 +34,7 @@ export default function AreaGestor () {
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
 			</tr>
 			<tr>
-				<td>2 </td>
+				<td><Link to="/seguimientocliente">2</Link></td>
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
 				<td><Link to="/perfilrepartidor">Lorem ipsum dolor sit amet, consectetur adipiscing.</Link></td>
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
@@ -42,7 +42,7 @@ export default function AreaGestor () {
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
 			</tr>
 			<tr>
-				<td>3 </td>
+				<td><Link to="/seguimientocliente">3</Link></td>
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
 				<td><Link to="/perfilrepartidor">Lorem ipsum dolor sit amet, consectetur adipiscing.</Link></td>
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
@@ -50,7 +50,7 @@ export default function AreaGestor () {
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
 			</tr>
 			<tr>
-				<td>4 </td>
+				<td><Link to="/seguimientocliente">4</Link></td>
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
 				<td><Link to="/perfilrepartidor">Lorem ipsum dolor sit amet, consectetur adipiscing.</Link></td>
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
@@ -58,7 +58,7 @@ export default function AreaGestor () {
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
 			</tr>
 			<tr>
-				<td>5</td>
+				<td><Link to="/seguimientocliente">5</Link></td>
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
 				<td><Link to="/perfilrepartidor">Lorem ipsum dolor sit amet, consectetur adipiscing.</Link></td>
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
@@ -66,7 +66,7 @@ export default function AreaGestor () {
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
 			</tr>
 			<tr>
-				<td>6</td>
+				<td><Link to="/seguimientocliente">6</Link></td>
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
 				<td><Link to="/perfilrepartidor">Lorem ipsum dolor sit amet, consectetur adipiscing.</Link></td>
 				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>

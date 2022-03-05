@@ -13,7 +13,7 @@ export default function Home() {
 	  <Form.Group className="pr-2 col-8" controlId="IdProducto">
 		<Form.Control type="email" placeholder="ID del producto" />
 	  </Form.Group>
-		<Button as={Link} to="/areacliente" variant="primary" className="btn-dark col" type="submit"> Buscar</Button>
+		<Button as={Link} to="/seguimientocliente" variant="primary" className="btn-dark col" type="submit"> Buscar</Button>
 	</Form>
 	</div>
   );
