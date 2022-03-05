@@ -52,6 +52,13 @@ export default function RegistroRepartidor() {
 		</Form.Text>
 	  </Form.Group>
 	  
+	   <Form.Group className="mx-auto p-2 row">
+		<Form.Label className="col-2">ID Vehículo</Form.Label>
+		<Form.Control className="col" type="text" placeholder="ID Vehículo" />
+		<Form.Text className="text-muted">
+		</Form.Text>
+	  </Form.Group>
+	  
 	  <Form.Group className="mx-auto p-2 row">
 		<Form.Label className="col-2">Nombre de usuario</Form.Label>
 		<Form.Control className="col" type="text" placeholder="Nombre de usuario" />

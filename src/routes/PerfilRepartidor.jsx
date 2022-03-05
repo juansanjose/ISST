@@ -13,7 +13,7 @@ export default function PerfilRepartidor() {
 			<p>DNI</p>
 			<p>E-mail</p>
 			<p>Número de teléfono</p>
-			<p>Número matrícula</p>
+			<p>ID Vehículo</p>
 		</div>
 	</div>
   );
