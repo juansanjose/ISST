@@ -18,7 +18,7 @@ export default function RegistroEmpresa() {
 	  </Form.Group>
 	  
 	  <Form.Group className="mx-auto p-2 row">
-		<Form.Label className="col-2">CIF</Form.Label>
+		<Form.Label className="col-2">NIF</Form.Label>
 		<Form.Control className="col" type="text" placeholder="CIF" />
 		<Form.Text className="text-muted">
 		</Form.Text>

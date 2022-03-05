@@ -10,7 +10,7 @@ export default function PerfilEmpresa() {
 			<div className="col">
 				<h3>DATOS PERSONALES</h3>
 				<p>Nombre</p>
-				<p>CIF</p>
+				<p>NIF</p>
 				<p>E-mail</p>
 				<p>Número de teléfono</p>
 		</div>
