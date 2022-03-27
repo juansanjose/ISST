@@ -1,3 +1,10 @@
+### IMPORTANTE:
+
+- Tras clonar este repositorio, es necesario hacer el comando "npm install" y "npm build" dentro de la carpeta frontend para que se vea la web.
+- Por ejemplo, en windows: PS D:\ISST\Caso de estudio\Sprint 2\ISST\frontend> yarn install
+- Se accede a la web mediante localhost:8080
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
