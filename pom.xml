@@ -102,10 +102,12 @@
                     <execution>
                         <id>npm run build</id>
                         <goals>
-                            <goal>npm</goal>
+                            <goal>exec</goal>
                         </goals>
+                        <phase>compile</phase>
                         <configuration>
-                            <arguments>run build</arguments>
+                            <arguments>run</arguments>
+                            <arguments>build</arguments>
                         </configuration>
                     </execution>
                 </executions>
