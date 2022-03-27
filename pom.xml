@@ -82,7 +82,6 @@
                         <goals>
                             <goal>yarn</goal>
                         </goals>
-                        <phase>prepare-package</phase>
                         <configuration>
                             <arguments>build</arguments>
                         </configuration>
@@ -100,7 +99,7 @@
                 <executions>
                     <execution>
                         <id>copy-resources</id>
-                        <phase>prepare-package</phase>
+                        <phase>process-resources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
