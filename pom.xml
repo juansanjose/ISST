@@ -82,31 +82,41 @@
                     <execution>
                         <id>install node</id>
                         <goals>
-                            <goal>install-node-and-npm</goal>
+                            <goal>install-node-and-yarn</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>14.18.0</nodeVersion>
-                            <npmVersion>8.3.0</npmVersion>
+                            <nodeVersion>${node.version}</nodeVersion>
+                            <yarnVersion>${yarn.version}</yarnVersion>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>npm install</id>
+                        <id>yarn install</id>
                         <goals>
-                            <goal>npm</goal>
+                            <goal>yarn</goal>
                         </goals>
                         <phase>generate-resources</phase>
-						<configuration>
-							<arguments>install</arguments>
-						</configuration>
                     </execution>
                     <execution>
-                        <id>npm run build</id>
+                        <id>yarn test</id>
                         <goals>
-                            <goal>npm</goal>
+                            <goal>yarn</goal>
                         </goals>
-                        <phase>generate-resources</phase>
+                        <phase>test</phase>
                         <configuration>
-                            <arguments>run build</arguments>
+                            <arguments>test</arguments>
+                            <environmentVariables>
+                                <CI>true</CI>
+                            </environmentVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>yarn build</id>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <phase>compile</phase>
+                        <configuration>
+                            <arguments>build</arguments>
                         </configuration>
                     </execution>
                 </executions>
@@ -122,8 +132,8 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <frontend-maven-plugin.version>1.6</frontend-maven-plugin.version>
-        <node.version>v16.3.1</node.version>
-        <npm.version>v8.3.0</npm.version>
+        <node.version>v14.18.0</node.version>
+        <yarn.version>v1.22.15</yarn.version>
         <spring-boot.version>2.4.4</spring-boot.version>
     </properties>
 
