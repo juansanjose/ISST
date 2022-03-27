@@ -86,7 +86,7 @@
                         <goals>
                             <goal>yarn</goal>
                         </goals>
-                        <phase>compile</phase>
+                        <phase>prepare-package</phase>
                         <configuration>
                             <arguments>build</arguments>
                         </configuration>
