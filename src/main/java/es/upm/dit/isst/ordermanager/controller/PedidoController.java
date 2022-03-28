@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.upm.dit.isst.ordermanager.model.Pedido;
 import es.upm.dit.isst.ordermanager.repository.PedidoRepository;
-
+@RequestMapping("/api/pedido")
+@RestController
 public class PedidoController {
     private final PedidoRepository pedidoRepository;
 
@@ -29,7 +31,7 @@ public class PedidoController {
 
     }
 
-    @GetMapping("/pedidos")
+    @GetMapping("/all")
 
     List<Pedido> readAll() {
 
@@ -39,7 +41,7 @@ public class PedidoController {
 
  
 
-    @PostMapping("/pedidos")
+    @PostMapping("/create")
 
     ResponseEntity<Pedido> create(@RequestBody Pedido newPedido) throws URISyntaxException {
 
@@ -50,7 +52,7 @@ public class PedidoController {
     }
 
 
-    @GetMapping("/pedidos/{id}")
+    @GetMapping("/{id}")
 
     ResponseEntity<Pedido> read(@PathVariable String id) {
 
@@ -62,7 +64,7 @@ public class PedidoController {
 
     }
 
-    @PutMapping("/pedidos/{id}")
+    @PutMapping("/change/{id}")
 
     ResponseEntity<Pedido> update(@RequestBody Pedido newPedido, @PathVariable String id) {
 
@@ -88,7 +90,7 @@ public class PedidoController {
 
     }
 
-    @DeleteMapping("pedidos/{id}")
+    @DeleteMapping("/delete/{id}")
 
     ResponseEntity<Pedido> delete(@PathVariable String id) {
 
@@ -98,7 +100,7 @@ public class PedidoController {
 
     }
 //El ID es el nombre del cliente (creo)
-    @GetMapping("/pedidos/cliente/{id}")
+    @GetMapping("/cliente/{id}")
 
     List<Pedido> readCliente(@PathVariable String id) {
 
@@ -106,7 +108,7 @@ public class PedidoController {
 
     }
 //El ID es el nombre del repartidor (creo)
-    @GetMapping("/pedidos/repartidor/{id}")
+    @GetMapping("/repartidor/{id}")
 
     List<Pedido> readRepartidor(@PathVariable String id) {
 
@@ -114,7 +116,7 @@ public class PedidoController {
 
     }
 //Para el estado
-    @PostMapping("/pedidos/{id}/incrementa")
+    @PostMapping("/{id}/increment")
 
     ResponseEntity<Pedido> incrementa(@PathVariable String id) {
 

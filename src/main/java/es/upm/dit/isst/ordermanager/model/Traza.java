@@ -15,8 +15,8 @@ public class Traza {
     @Column(name = "fecha_y_hora", columnDefinition = "TIMESTAMP")
     private LocalDateTime fechahora;
     private double ubicacion;
-    @ManyToOne
-    @JoinColumn(name="pedido_id", nullable=false)
+    @ManyToOne(targetEntity = Pedido.class)
+    @JoinColumn(name="pedido_id", nullable=false, referencedColumnName = "id")
     private Pedido pedido;
 
     public String getId() {

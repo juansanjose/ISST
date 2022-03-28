@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.upm.dit.isst.ordermanager.model.Traza;
 import es.upm.dit.isst.ordermanager.repository.TrazaRepository;
-
+@RequestMapping("/api/traza")
+@RestController
 public class TrazaController {
     
     private final TrazaRepository trazaRepository;
@@ -30,7 +32,7 @@ public class TrazaController {
 
     }
 
-    @GetMapping("/pedido/{id}/trazas")
+    @GetMapping("/pedido/{id}")
 
     List<Traza> readPedido(@PathVariable String id) {
 
