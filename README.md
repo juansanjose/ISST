@@ -2,7 +2,8 @@
 
 - Se accede a la web mediante localhost:8080
 
-### Si la web está en blanco
-- Tras clonar este repositorio, es necesario hacer el comando "npm install" y "npm build" dentro de la carpeta frontend para que se vea la web.
-- Por ejemplo, en windows: PS D:\ISST\Caso de estudio\Sprint 2\ISST\frontend> yarn install
+- Usar  ./mvnw clean install spring-boot:run "-DskipTests=true" con powershell o cmd en la carpeta ISST para cargar el proyecto. - La opción más fácil de abrir powershell es darle a Ctrl + Shift + Ñ en Visual Studio Code o, en la barra de arriba de Visual Studio Code, darle clic a terminal y luego a "Nuevo Terminal".
+
+- Para parar el proyecto se puede dar al icono de bolsa de basura que aparece debajo en visual studio code como en la siguiente imagen:
+ https://i.imgur.com/Fnskh14.png
 
