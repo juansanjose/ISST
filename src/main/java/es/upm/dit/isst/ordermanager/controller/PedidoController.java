@@ -74,8 +74,6 @@ public class PedidoController {
 
         pedido.setDestino(newPedido.getDestino());
 
-        pedido.setTrazas(newPedido.getTrazas());
-
         pedido.setEstado(newPedido.getEstado());
 
         pedido.setIdvehiculo(newPedido.getIdvehiculo());

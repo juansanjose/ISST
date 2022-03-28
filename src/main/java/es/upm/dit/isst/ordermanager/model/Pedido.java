@@ -18,8 +18,8 @@ public class Pedido {
     private String cliente;
 
     
-    @OneToMany(mappedBy="pedido")
-    private Set<Traza> trazas;
+    //@OneToMany(mappedBy="pedido")
+    //private Set<Traza> trazas;
 
 
     public String getId() {
@@ -78,13 +78,13 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public Set<Traza> getTrazas() {
+/*     public Set<Traza> getTrazas() {
         return this.trazas;
     }
 
     public void setTrazas(Set<Traza> trazas) {
         this.trazas = trazas;
-    }
+    } */
  
 
     
