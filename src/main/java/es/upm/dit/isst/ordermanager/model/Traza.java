@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 
 import javax.persistence.ManyToOne;
 
+
+
 @javax.persistence.Entity
 public class Traza {
     @Id
@@ -17,6 +19,7 @@ public class Traza {
     private double ubicacion;
     @ManyToOne(targetEntity = Pedido.class)
     @JoinColumn(name="pedido_id", nullable=false, referencedColumnName = "id")
+
     private Pedido pedido;
 
     public String getId() {

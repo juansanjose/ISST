@@ -36,7 +36,7 @@ public class TrazaController {
 
     List<Traza> readPedido(@PathVariable String id) {
 
-      return (List<Traza>) trazaRepository.findByPedido(id);
+      return (List<Traza>) trazaRepository.findByPedidoId(id);
 
     }
 }
