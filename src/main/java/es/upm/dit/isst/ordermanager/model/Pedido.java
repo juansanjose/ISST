@@ -1,6 +1,9 @@
 package es.upm.dit.isst.ordermanager.model;
 
+import java.util.Set;
+
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @javax.persistence.Entity
 public class Pedido {
@@ -8,11 +11,15 @@ public class Pedido {
     private int id;
     private String origen;
     private String destino;
-    private double ubicacion;
+
     private int estado;
     private int idvehiculo;
     private String repartidor;
     private String cliente;
+
+    
+    @OneToMany(mappedBy="pedido")
+    private Set<Traza> trazas;
 
 
     public int getId() {
@@ -37,14 +44,6 @@ public class Pedido {
 
     public void setDestino(String destino) {
         this.destino = destino;
-    }
-
-    public double getUbicacion() {
-        return this.ubicacion;
-    }
-
-    public void setUbicacion(double ubicacion) {
-        this.ubicacion = ubicacion;
     }
 
     public int getEstado() {
@@ -78,6 +77,15 @@ public class Pedido {
     public void setCliente(String cliente) {
         this.cliente = cliente;
     }
+
+    public Set<Traza> getTrazas() {
+        return this.trazas;
+    }
+
+    public void setTrazas(Set<Traza> trazas) {
+        this.trazas = trazas;
+    }
+ 
 
     
 }

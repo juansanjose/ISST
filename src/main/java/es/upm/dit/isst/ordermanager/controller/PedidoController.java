@@ -72,7 +72,7 @@ public class PedidoController {
 
         pedido.setDestino(newPedido.getDestino());
 
-        pedido.setUbicacion(newPedido.getUbicacion());
+        pedido.setTrazas(newPedido.getTrazas());
 
         pedido.setEstado(newPedido.getEstado());
 
