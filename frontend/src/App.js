@@ -19,6 +19,7 @@ import RegistroRepartidor from './routes/RegistroRepartidor.jsx';
 import AreaRepartidorConfirmar from  './routes/AreaRepartidorConfirmar.jsx';
 import AreaRepartidorFinalizar from  './routes/AreaRepartidorFinalizar.jsx';
 import AreaClienteOpinion from  './routes/AreaClienteOpinion.jsx';
+import Debug from './routes/Debug.jsx';
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
 	  <Route path="/registroempresa" element={<RegistroEmpresa />} />
 	  <Route path="/registrorepartidor" element={<RegistroRepartidor />} />
 	  <Route path="/areaclienteopinion" element={<AreaClienteOpinion />} />
+	  <Route path="/debug" element={<Debug />} />
     </Routes>
 	{/*Rutas*/}
 	{/*Footer*/}
