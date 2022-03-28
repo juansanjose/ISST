@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 @javax.persistence.Entity
 public class Traza {
     @Id
-    private int trazaid;
+    private String trazaid;
     @Column(name = "fecha_y_hora", columnDefinition = "TIMESTAMP")
     private LocalDateTime fechahora;
     private double ubicacion;
@@ -19,11 +19,11 @@ public class Traza {
     @JoinColumn(name="pedido_id", nullable=false)
     private Pedido pedido;
 
-    public int getId() {
+    public String getId() {
         return this.trazaid;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.trazaid = id;
     }
 

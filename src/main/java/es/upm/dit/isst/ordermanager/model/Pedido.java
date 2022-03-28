@@ -8,12 +8,12 @@ import javax.persistence.OneToMany;
 @javax.persistence.Entity
 public class Pedido {
     @Id
-    private int id;
+    private String id;
     private String origen;
     private String destino;
 
     private int estado;
-    private int idvehiculo;
+    private String idvehiculo;
     private String repartidor;
     private String cliente;
 
@@ -22,11 +22,11 @@ public class Pedido {
     private Set<Traza> trazas;
 
 
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -54,11 +54,11 @@ public class Pedido {
         this.estado = estado;
     }
 
-    public int getIdvehiculo() {
+    public String getIdvehiculo() {
         return this.idvehiculo;
     }
 
-    public void setIdvehiculo(int idvehiculo) {
+    public void setIdvehiculo(String idvehiculo) {
         this.idvehiculo = idvehiculo;
     }
 
