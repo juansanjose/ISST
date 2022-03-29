@@ -16,7 +16,8 @@ public class Traza {
     private String trazaid;
     @Column(name = "fecha_y_hora", columnDefinition = "TIMESTAMP")
     private LocalDateTime fechahora;
-    private double ubicacion;
+    private double latitud;
+    private double longitud;
     @ManyToOne(targetEntity = Pedido.class)
     @JoinColumn(name="pedido_id", nullable=false, referencedColumnName = "id")
 
@@ -38,12 +39,29 @@ public class Traza {
         this.fechahora = fechahora;
     }
 
-    public double getUbicacion() {
-        return this.ubicacion;
+
+    public String getTrazaid() {
+        return this.trazaid;
     }
 
-    public void setUbicacion(double ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setTrazaid(String trazaid) {
+        this.trazaid = trazaid;
+    }
+
+    public double getLatitud() {
+        return this.latitud;
+    }
+
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
+
+    public double getLongitud() {
+        return this.longitud;
+    }
+
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;
     }
 
     public Pedido getPedido() {
