@@ -39,6 +39,7 @@ export default function RutaRepartidor(){
 	  
   	  
 	   }
+       //traza que queremos que sea creada cada 10 segundos
         Item = {
             trazaid: idTraza,
             fechahora: fechaHora,

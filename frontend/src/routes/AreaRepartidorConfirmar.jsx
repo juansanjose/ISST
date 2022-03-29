@@ -4,6 +4,21 @@ import {Link} from 'react-router-dom';
 import ubicacionfin from '../assets/pedido_finalizado.png';
 
 export default function AreaRepartidorConfirmar() {
+	
+	
+	
+	// const onClickUrl = (url) => {
+	// 	return () => openInNewTab(url)
+	//   }
+	  
+	
+	//   const openInNewTab = (url) => {
+	// 	const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+	// 	if (newWindow) newWindow.opener = null
+	//   }
+
+
+
 
   return (
     <div>
@@ -21,8 +36,8 @@ export default function AreaRepartidorConfirmar() {
 		<h4 className="text-center">UBICACIÓN DESTINO</h4>
 		<img src={ubicacionfin} alt="reparto" className="mx-auto d-block"/>
 		<div className="d-flex justify-content-around mt-4">
-		<Button as={Link} to="/arearepartidor"variant="success"className=" col-2 py-4" type="submit">Aceptar</Button>
-		<Button as={Link} to="/arearepartidor" variant="danger"className=" col-2 py-4" type="submit">Rechazar</Button>
+		<Button  as={Link} to="/arearepartidor" target="_blank" variant="success"className=" col-2 py-4" type="submit" >Aceptar</Button>
+		<Button as={Link} to="/arearepartidor" target="_blank" variant="danger"className=" col-2 py-4" type="submit">Rechazar</Button>
 		</div>
 	</div>
   );

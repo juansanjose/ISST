@@ -129,4 +129,10 @@ public class PedidoController {
       }).orElse(new ResponseEntity<Pedido>(HttpStatus.NOT_FOUND));  
 
     }
+
+    @GetMapping("/arearepartidor"){
+
+    }
+
+
 }
