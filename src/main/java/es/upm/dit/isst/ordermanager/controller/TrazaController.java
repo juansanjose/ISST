@@ -32,11 +32,24 @@ public class TrazaController {
 
     }
 
-    @GetMapping("/pedido/{id}")
+    @GetMapping("/{id}")
 
-    List<Traza> readPedido(@PathVariable String id) {
+    List<Traza> readTraza(@PathVariable String pedidoId) {
 
-      return (List<Traza>) trazaRepository.findByPedido(id);
+      return (List<Traza>) trazaRepository.findByPedidoId(pedidoId);
 
     }
+
+    @PostMapping("/create")
+
+    ResponseEntity<Traza> create(@RequestBody Traza newTraza) throws URISyntaxException {
+
+      Traza result = trazaRepository.save(newTraza);
+
+      return ResponseEntity.created(new URI("/api/traza/create" + result.gettrazaid())).body(result);
+
+    }
+
+
+
 }

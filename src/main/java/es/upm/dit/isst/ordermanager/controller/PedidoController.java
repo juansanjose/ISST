@@ -47,7 +47,7 @@ public class PedidoController {
 
       Pedido result = pedidoRepository.save(newPedido);
 
-      return ResponseEntity.created(new URI("/pedidos/" + result.getId())).body(result);
+      return ResponseEntity.created(new URI("/create/" + result.getId())).body(result);
 
     }
 

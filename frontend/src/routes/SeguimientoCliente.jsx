@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {Button, Form, Table} from 'react-bootstrap';
 import { useContext } from 'react';
+import { useState, useEffect } from 'react';
+
 import reparto from '../assets/en_reparto.png';
 import recogido from '../assets/espera_recogido.png';
 import confirmado from '../assets/pedido_confirmado.png';
@@ -8,6 +10,12 @@ import entregado from '../assets/pedido_entregado.png';
 import almacen from '../assets/salida_almacen.png';
 
 export default function SeguimientoCliente() {
+
+
+
+
+
+
 
   return (
     <div>
