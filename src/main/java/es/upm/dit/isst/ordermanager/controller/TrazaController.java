@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es.upm.dit.isst.ordermanager.model.Traza;
 import es.upm.dit.isst.ordermanager.repository.TrazaRepository;
-@RequestMapping("/api/traza")
+//@RequestMapping("/api/traza")
 @RestController
 public class TrazaController {
     
@@ -32,7 +32,7 @@ public class TrazaController {
 
     }
 
-    @GetMapping("/pedido/{id}")
+    @GetMapping("/api/traza/pedido/{id}")
 
     List<Traza> readPedido(@PathVariable String id) {
 

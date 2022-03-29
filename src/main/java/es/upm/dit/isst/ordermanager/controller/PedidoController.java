@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es.upm.dit.isst.ordermanager.model.Pedido;
 import es.upm.dit.isst.ordermanager.repository.PedidoRepository;
-@RequestMapping("/api/pedido")
+//@RequestMapping("/api/pedido")
 @RestController
 public class PedidoController {
     private final PedidoRepository pedidoRepository;
@@ -31,7 +31,7 @@ public class PedidoController {
 
     }
 
-    @GetMapping("/all")
+    @GetMapping("/api/pedido/all")
 
     List<Pedido> readAll() {
 
@@ -41,7 +41,7 @@ public class PedidoController {
 
  
 
-    @PostMapping("/create")
+    @PostMapping("/api/pedido/create")
 
     ResponseEntity<Pedido> create(@RequestBody Pedido newPedido) throws URISyntaxException {
 
@@ -52,7 +52,7 @@ public class PedidoController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/api/pedido/{id}")
 
     ResponseEntity<Pedido> read(@PathVariable String id) {
 
@@ -64,7 +64,7 @@ public class PedidoController {
 
     }
 
-    @PutMapping("/change/{id}")
+    @PutMapping("/api/pedido/change/{id}")
 
     ResponseEntity<Pedido> update(@RequestBody Pedido newPedido, @PathVariable String id) {
 
@@ -88,7 +88,7 @@ public class PedidoController {
 
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/api/pedido/delete/{id}")
 
     ResponseEntity<Pedido> delete(@PathVariable String id) {
 
@@ -98,7 +98,7 @@ public class PedidoController {
 
     }
 //El ID es el nombre del cliente (creo)
-    @GetMapping("/cliente/{id}")
+    @GetMapping("/api/pedido/cliente/{id}")
 
     List<Pedido> readCliente(@PathVariable String id) {
 
@@ -106,7 +106,7 @@ public class PedidoController {
 
     }
 //El ID es el nombre del repartidor (creo)
-    @GetMapping("/repartidor/{id}")
+    @GetMapping("/api/pedido/repartidor/{id}")
 
     List<Pedido> readRepartidor(@PathVariable String id) {
 
@@ -114,7 +114,7 @@ public class PedidoController {
 
     }
 //Para el estado
-    @PostMapping("/{id}/increment")
+    @PostMapping("/api/pedido/{id}/increment")
 
     ResponseEntity<Pedido> incrementa(@PathVariable String id) {
 
