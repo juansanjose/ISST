@@ -39,4 +39,13 @@ public class TrazaController {
       return (List<Traza>) trazaRepository.findByPedidoId(id);
 
     }
+    @PostMapping("/api/traza/create")
+
+    ResponseEntity<Traza> create(@RequestBody Traza newTraza) throws URISyntaxException {
+
+      Traza result = trazaRepository.save(newTraza);
+
+      return ResponseEntity.created(new URI("/trazas/" + result.getId())).body(result);
+
+    }
 }

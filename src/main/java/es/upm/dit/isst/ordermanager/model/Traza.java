@@ -20,7 +20,6 @@ public class Traza {
     private double longitud;
     @ManyToOne(targetEntity = Pedido.class)
     @JoinColumn(name="pedido_id", nullable=false, referencedColumnName = "id")
-
     private Pedido pedido;
 
     public String getId() {
