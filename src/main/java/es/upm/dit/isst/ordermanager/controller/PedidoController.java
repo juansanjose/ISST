@@ -130,9 +130,7 @@ public class PedidoController {
 
     }
 
-    @GetMapping("/arearepartidor"){
-
-    }
+   
 
 
 }
