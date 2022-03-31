@@ -9,7 +9,6 @@ export default function AreaCliente() {
 	const handleSubmit = (e) => {
         e.preventDefault();
 
-		alert('You have submitted');
     }
 
 	useEffect(() => { 

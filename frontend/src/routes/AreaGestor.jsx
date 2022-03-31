@@ -1,10 +1,33 @@
 import * as React from 'react';
 import {Table} from 'react-bootstrap';
-
+import { useState, useEffect } from 'react';
 import {Link } from "react-router-dom";
 
 export default function AreaGestor () {
+	const [pedido, setPedido] = useState([]);
+	const handleSubmit = (e) => {
+        e.preventDefault();
 
+    }
+
+	useEffect(() => { 
+		
+		// Update the document title using the browser API
+		fetch('/api/pedido/all')
+			.then(response => response.json())
+			.then(response => setPedido(response));
+		console.log(pedido);
+	});
+	const pedidosList = pedido.map(pedido => {
+		return <tr key={pedido.cliente}>
+                <td style={{whiteSpace: 'nowrap'}}>{pedido.id}</td>
+                <td>{pedido.estado}</td>
+                <td>{pedido.repartidor}</td>
+                <td>{pedido.destino}</td>
+				<td>{pedido.origen}</td>
+                <td>opinion</td>
+        </tr>
+    });
   return (
 	<div>
 		<h2>HISTORIAL DE PEDIDOS</h2>
@@ -25,55 +48,7 @@ export default function AreaGestor () {
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td><Link to="/seguimientocliente">1</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td><Link to="/perfilrepartidor">Lorem ipsum dolor sit amet, consectetur adipiscing.</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-			</tr>
-			<tr>
-				<td><Link to="/seguimientocliente">2</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td><Link to="/perfilrepartidor">Lorem ipsum dolor sit amet, consectetur adipiscing.</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-			</tr>
-			<tr>
-				<td><Link to="/seguimientocliente">3</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td><Link to="/perfilrepartidor">Lorem ipsum dolor sit amet, consectetur adipiscing.</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-			</tr>
-			<tr>
-				<td><Link to="/seguimientocliente">4</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td><Link to="/perfilrepartidor">Lorem ipsum dolor sit amet, consectetur adipiscing.</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-			</tr>
-			<tr>
-				<td><Link to="/seguimientocliente">5</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td><Link to="/perfilrepartidor">Lorem ipsum dolor sit amet, consectetur adipiscing.</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-			</tr>
-			<tr>
-				<td><Link to="/seguimientocliente">6</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td><Link to="/perfilrepartidor">Lorem ipsum dolor sit amet, consectetur adipiscing.</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-			</tr>
-			
+			{pedidosList}	
 		</tbody>
 		</Table>
 		
