@@ -12,7 +12,23 @@ export default function AreaCliente() {
     }
 
 	useEffect(() => { 
-		
+		fetch('http://localhost:8080/api/pedido/create', {
+			method:'POST', 
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				id:"prueba",
+				origen:"dfdfdf",
+				destino:"sdfsdfsdf",
+			   estado:"1",
+			   idvehiculo:"2323123123",
+			   repartidor:"juan",
+				cliente:"juan"
+			}
+			 )
+		});
 		// Update the document title using the browser API
 		fetch('/api/pedido/cliente/'+String(nombre))
 			.then(response => response.json())
@@ -42,7 +58,7 @@ export default function AreaCliente() {
 	const pedidosList = pedido.map(pedido => {
 		return <tr key={pedido.cliente}>
                 <td style={{whiteSpace: 'nowrap'}}>{pedido.id}</td>
-                <td><Button as={Link} to="/seguimientoCliente"  variant="success"className=" col-2 py-4" type="submit">{pedido.estado}</Button></td>
+                <td><Button as={Link}  to={{pathname: "/seguimientoCliente",state: { repartidor:pedido.repartidor,destino:pedido.destino,origen:pedido.origen,id:pedido.id,estado:pedido.estado  },}} variant="success"className=" col-2 py-4" type="submit">{pedido.estado}</Button></td>
                 <td>{pedido.repartidor}</td>
                 <td>{pedido.destino}</td>
 				<td>{pedido.origen}</td>

@@ -8,19 +8,31 @@ import entregado from '../assets/pedido_entregado.png';
 import almacen from '../assets/salida_almacen.png';
 import RutaRepartidor from './RutaRepartidor';
 import {coordenadas} from '../assets/coordenadas.js';
+import { useLocation } from 'react-router-dom';
 
 export default function SeguimientoCliente() {
  //hooks con las propiedadades del item para crear
  const [longitud, setLongitud]=useState(coordenadas[0].longitud);
  const [latitud, setLatitud]=useState(coordenadas[0].latitud);
- const [repartidor,setRepartidor]=useState("");//esto sería mejor que fuese pasado como un props.repartidor
  const [pedido,setPedido]=useState();//mejor que se lo pasasen como props
  const [idTraza,setIdTraza]=useState("");
  const [time, setTime] = useState(Date.now()); 
  const [contador,setContador]=useState(0);
  const [ubicacion,setUbicacion]=useState("");
  
- //método generador de trazas
+ 
+ const location = useLocation()
+ const id = location.state?.id;
+ const repartidor=location.state?.repartidor;
+ const destino=location.state?.destino;
+ const origen=location.state?.origen;
+const estado=location.state?.estado;
+	console.log(location);
+	console.log(id);
+	console.log(repartidor);
+	console.log(destino);
+	console.log(origen);
+
  function uuidv4() {
 	return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
 	  (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
@@ -28,12 +40,12 @@ export default function SeguimientoCliente() {
   }
  
  let prueba={
-	id:"prueba",
-	origen:"dfdfdf",
-	destino:"sdfsdfsdf",
-   estado:"1",
+	id:id,
+	origen:origen,
+	destino:destino,
+   estado:estado,
    idvehiculo:"2323123123",
-   repartidor:"juan",
+   repartidor:repartidor,
 	cliente:"juan"
  }; 
 	
@@ -70,8 +82,8 @@ useEffect(() => {
 	// 		cliente:"juan"
 	// 	}
 	// 	 )
-	// }).then(flag=1);
-	 
+	// });
+	
 	
 	console.log(contador);
 	console.log(latitud);
@@ -86,15 +98,24 @@ const timer = setInterval(() => {
 	setContador(0);
    }
 	
-   setContador(prevcontador => prevcontador + 1); // <-- Change this line!
+   setContador(prevcontador => prevcontador + 1); 
    
    setLongitud(coordenadas[contador].longitud);
 	setLatitud(coordenadas[contador].latitud);
 	fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitud}&lon=${longitud}&format=json`)
 	 .then(response => response.json())
 	 .then(response=> setUbicacion(String(response.address.road)))
+	 fetch('/api/traza/create', {
+		method:'POST', 
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(traza),
+	}).then(setIdTraza(uuidv4()));
+  		
 
-  		}, 3000);
+	}, 3000);
  
 	
    const id = setInterval(() => {
