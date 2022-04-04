@@ -12,7 +12,7 @@ public class Pedido {
     private String origen;
     private String destino;
 
-    private int estado;
+    private String estado;
     private String idvehiculo;
     private String repartidor;
     private String cliente;
@@ -46,11 +46,11 @@ public class Pedido {
         this.destino = destino;
     }
 
-    public int getEstado() {
+    public String getEstado() {
         return this.estado;
     }
 
-    public void setEstado(int estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 

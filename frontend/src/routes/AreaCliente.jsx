@@ -42,7 +42,7 @@ export default function AreaCliente() {
 	const pedidosList = pedido.map(pedido => {
 		return <tr key={pedido.cliente}>
                 <td style={{whiteSpace: 'nowrap'}}>{pedido.id}</td>
-                <td>{pedido.estado}</td>
+                <td><Button as={Link} to="/seguimientoCliente"  variant="success"className=" col-2 py-4" type="submit">{pedido.estado}</Button></td>
                 <td>{pedido.repartidor}</td>
                 <td>{pedido.destino}</td>
 				<td>{pedido.origen}</td>
@@ -74,7 +74,7 @@ export default function AreaCliente() {
 					<tr>
 						<th>ID del producto</th>
 
-						<th>Estado del pedido</th>
+						<th >Estado del pedido</th>
 
 						<th>Repartidor</th>
 
