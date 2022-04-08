@@ -8,95 +8,55 @@ import entregado from '../assets/pedido_entregado.png';
 import almacen from '../assets/salida_almacen.png';
 import RutaRepartidor from './RutaRepartidor';
 import {coordenadas} from '../assets/coordenadas.js';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 export default function SeguimientoCliente() {
  //hooks con las propiedadades del item para crear
  const [longitud, setLongitud]=useState(coordenadas[0].longitud);
  const [latitud, setLatitud]=useState(coordenadas[0].latitud);
- const [pedido,setPedido]=useState();//mejor que se lo pasasen como props
+ const [pedido,setPedido]=useState({});//mejor que se lo pasasen como props
  const [idTraza,setIdTraza]=useState("");
  const [time, setTime] = useState(Date.now()); 
  const [contador,setContador]=useState(0);
  const [ubicacion,setUbicacion]=useState("");
  
- 
- const location = useLocation()
- const id = location.state?.id;
- const repartidor=location.state?.repartidor;
- const destino=location.state?.destino;
- const origen=location.state?.origen;
-const estado=location.state?.estado;
-	console.log(location);
-	console.log(id);
-	console.log(repartidor);
-	console.log(destino);
-	console.log(origen);
 
+	
  function uuidv4() {
 	return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
 	  (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
 	);
   }
  
- let prueba={
-	id:id,
-	origen:origen,
-	destino:destino,
-   estado:estado,
-   idvehiculo:"2323123123",
-   repartidor:repartidor,
-	cliente:"juan"
- }; 
-	
-
 
 	let traza = {
 		trazaid: String(uuidv4()),
 		fechahora: "2007-12-03T10:15:30",
 		latitud: String(latitud),
 		longitud: String(longitud),
-		pedido: prueba,
+		pedido: pedido,
    };
    
   let flag=0;
+  let {id}=useParams();
 
 
   
 
 useEffect(() => {
-	
-	// fetch('http://localhost:8080/api/pedido/create', {
-	// 	method:'POST', 
-	// 	headers: {
-	// 		'Accept': 'application/json',
-	// 		'Content-Type': 'application/json'
-	// 	},
-	// 	body: JSON.stringify({
-	// 		id:"prueba",
-	// 		origen:"dfdfdf",
-	// 		destino:"sdfsdfsdf",
-	// 	   estado:"1",
-	// 	   idvehiculo:"2323123123",
-	// 	   repartidor:"juan",
-	// 		cliente:"juan"
-	// 	}
-	// 	 )
-	// });
-	
-	
-	console.log(contador);
-	console.log(latitud);
-	
+	fetch(`/api/pedido/${id}`)
+		.then(response => response.json())
+		.then(response=> setPedido(response))
+		console.log(pedido)
    const interval = setInterval(() => setTime(new Date().toISOString())
    , 1000);
    
 
-const timer = setInterval(() => {
-	if (contador+1===10)
-	{
-	setContador(0);
-   }
+	const timer = setInterval(() => {
+		if (contador+1===10)
+		{
+		setContador(0);
+	}
 	
    setContador(prevcontador => prevcontador + 1); 
    
@@ -116,72 +76,16 @@ const timer = setInterval(() => {
   		
 
 	}, 3000);
- 
-	
-   const id = setInterval(() => {
-	   
-
-	 // <-- (3) invoke in interval callback
-   }, 3000);
-//    setTimeout(function(){
-// 	fetchData()
-// 		}, 2000)
   
   return () => {
 	clearInterval(timer);
      clearInterval(interval);
- 	clearInterval(id);
    };
  
 }, [contador]);
 	
-   let pedir_Pedido=async()=>{
-   try{
-	 await fetch('/api/pedido/prueba', {
-		 method:'GET', 
-		 headers: {
-			 'Accept': 'application/json',
-			 'Content-Type': 'application/json'
-		 }
-	  
-	 }).then(response => response.json())
-	 .then(response => setPedido(response));
-   	 }
-   catch(error){
-   }
-}
-
-
-
-
-// 	//creamos una traza de prueba
-	  
-	 
-
-	// const ifgjsdoigsdf=setInterval(()=>
-	// 	fetch('/api/traza/create', {
-	// 			method:'POST', 
-	// 			headers: {
-	// 				'Accept': 'application/json',
-	// 				'Content-Type': 'application/json'
-	// 			},
-	// 			body: JSON.stringify(traza),
-	// 		});
-	// 		setContador((contador)=>contador+1);
-	// 	 	if (contador==Object.keys(coordenadas).length)
- 	// 		{
-	//  		contador=0;
- 	// 			}
-	// 		setLongitud(coordenadas[contador].longitud);
-  	// 		setLatitud(coordenadas[contador].longitud);
-			
-			
-		  
-	//   , 1000);
-
-	 
-
-  
+   console.log(pedido.estado)
+	
   
    return (
 	   
@@ -228,8 +132,8 @@ const timer = setInterval(() => {
 		<tbody>
 			<tr>
 				<td>{time}	 </td>
-				<td>{prueba.estado} </td>
-				<td>{prueba.idvehiculo} </td>
+				<td> {pedido.estado}</td>
+				<td>{pedido.idvehiculo} </td>
 				{/* <td>{contador} </td> */}
 
 				<td>{ubicacion} </td>
@@ -237,6 +141,10 @@ const timer = setInterval(() => {
 			
 		</tbody>
 		</Table>
+
+		<RutaRepartidor pedido={pedido}/>
+
+
 	</div>
    );
  }

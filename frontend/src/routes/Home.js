@@ -11,7 +11,7 @@ export default function Home() {
 	<h1 className="text-center">¡BIENVENIDO A TRACKERS!</h1>
 	<Form className="pt-4 p-4 row">
 	  <Form.Group className="pr-2 col-8" controlId="IdProducto">
-		<Form.Control type="email" placeholder="ID del producto" />
+		<Form.Control  placeholder="ID del producto" />
 	  </Form.Group>
 		<Button as={Link} to="/seguimientocliente" variant="primary" className="btn-dark col" type="submit"> Buscar</Button>
 	</Form>

@@ -29,12 +29,14 @@ export default function AreaCliente() {
 			}
 			 )
 		});
-		// Update the document title using the browser API
+
 		fetch('/api/pedido/cliente/'+String(nombre))
 			.then(response => response.json())
 			.then(response => setPedido(response));
 		console.log(pedido);
+		
 	});
+	
 	/*constructor(props) {
 		super(props);
 		this.state = {pedidos: []};
@@ -58,7 +60,7 @@ export default function AreaCliente() {
 	const pedidosList = pedido.map(pedido => {
 		return <tr key={pedido.cliente}>
                 <td style={{whiteSpace: 'nowrap'}}>{pedido.id}</td>
-                <td><Button as={Link}  to={{pathname: "/seguimientoCliente",state: { repartidor:pedido.repartidor,destino:pedido.destino,origen:pedido.origen,id:pedido.id,estado:pedido.estado  },}} variant="success"className=" col-2 py-4" type="submit">{pedido.estado}</Button></td>
+                <td><Button as={Link}  to={{pathname: `/seguimientocliente/${pedido.id}`}} variant="success"className=" col-2 py-4" type="submit">{pedido.estado}</Button></td>
                 <td>{pedido.repartidor}</td>
                 <td>{pedido.destino}</td>
 				<td>{pedido.origen}</td>
@@ -82,7 +84,7 @@ export default function AreaCliente() {
                         onChange={(e) => setNombre(e.target.value)}
                     />
                 </div>
-                <button type='submit'>Buscar</button>
+                <button type='submit' onClick={()=>buscarPedido()}>Buscar</button>
             </form>
         </div>
 			<Table className="bg-light">
