@@ -84,7 +84,7 @@ export default function AreaCliente() {
                         onChange={(e) => setNombre(e.target.value)}
                     />
                 </div>
-                <button type='submit' onClick={()=>buscarPedido()}>Buscar</button>
+                <button type='submit' >Buscar</button>
             </form>
         </div>
 			<Table className="bg-light">
