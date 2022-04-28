@@ -56,7 +56,7 @@ export default function AreaCliente() {
 			<Button as={Link} to="/seguimientocliente" variant="primary" className="btn-dark col" type="submit"> Buscar pedidos del cliente</Button>
 		</Form>
 	</div>*/
-
+function buscarPedido(){}
 	const pedidosList = pedido.map(pedido => {
 		return <tr key={pedido.cliente}>
                 <td style={{whiteSpace: 'nowrap'}}>{pedido.id}</td>
