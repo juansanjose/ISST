@@ -30,7 +30,7 @@ export default function Home() {
 				id:"prueba",
 				origen:"dfdfdf",
 				destino:"sdfsdfsdf",
-			   estado:"1",
+			   estado:"En tránsito",
 			   idvehiculo:"2323123123",
 			   repartidor:"juan",
 				cliente:"juan"
