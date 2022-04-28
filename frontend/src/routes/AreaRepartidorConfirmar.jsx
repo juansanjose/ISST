@@ -21,8 +21,8 @@ export default function AreaRepartidorConfirmar() {
 		<h4 className="text-center">UBICACIÓN DESTINO</h4>
 		<img src={ubicacionfin} alt="reparto" className="mx-auto d-block"/>
 		<div className="d-flex justify-content-around mt-4">
-		<Button as={Link} to="/arearepartidor"variant="success"className=" col-2 py-4" type="submit">Aceptar</Button>
-		<Button as={Link} to="/arearepartidor" variant="danger"className=" col-2 py-4" type="submit">Rechazar</Button>
+		<Button as={Link} to="/rutarepartidor"  variant="success"className=" col-2 py-4" type="submit">Aceptar</Button>
+		<Button as={Link} to="/arearepartidor"  variant="danger"className=" col-2 py-4" type="submit">Rechazar</Button>
 		</div>
 	</div>
   );

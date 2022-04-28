@@ -19,6 +19,7 @@ import RegistroRepartidor from './routes/RegistroRepartidor.jsx';
 import AreaRepartidorConfirmar from  './routes/AreaRepartidorConfirmar.jsx';
 import AreaRepartidorFinalizar from  './routes/AreaRepartidorFinalizar.jsx';
 import AreaClienteOpinion from  './routes/AreaClienteOpinion.jsx';
+import RutaRepartidor from './routes/RutaRepartidor.jsx';
 import Debug from './routes/Debug.jsx';
 
 function App() {
@@ -52,7 +53,7 @@ function App() {
 	  <Route path="/arearepartidor" element={<AreaRepartidor />} />
 	  <Route path="/arearepartidorconfirmar" element={<AreaRepartidorConfirmar />} />
 	  <Route path="/arearepartidorfinalizar" element={<AreaRepartidorFinalizar />} />
-	  <Route path="/seguimientocliente" element={<SeguimientoCliente />} />
+	  <Route path="/seguimientocliente/:id" element={<SeguimientoCliente />} />
 	  <Route path="/perfilrepartidor" element={<PerfilRepartidor />} />
 	  <Route path="/perfilparticular" element={<PerfilParticular />} />
 	  <Route path="/registroparticular" element={<RegistroParticular />} />
@@ -60,6 +61,9 @@ function App() {
 	  <Route path="/registroempresa" element={<RegistroEmpresa />} />
 	  <Route path="/registrorepartidor" element={<RegistroRepartidor />} />
 	  <Route path="/areaclienteopinion" element={<AreaClienteOpinion />} />
+	  <Route path="/rutarepartidor/:id" element={<RutaRepartidor />} />
+
+
 	  <Route path="/debug" element={<Debug />} />
     </Routes>
 	{/*Rutas*/}
