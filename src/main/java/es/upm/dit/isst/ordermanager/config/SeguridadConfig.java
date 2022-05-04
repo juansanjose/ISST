@@ -20,8 +20,8 @@ public class SeguridadConfig extends WebSecurityConfigurerAdapter{
 
         http.authorizeRequests()
             .antMatchers("/areagestor").hasAnyRole("GESTOR")
-           // .antMatchers("/areacliente").hasAnyRole("CLIENTE")
-           // .antMatchers("/arearepartidor").hasAnyRole("REPAR")
+            .antMatchers("/areacliente").hasAnyRole("CLIENTE")
+            .antMatchers("/arearepartidor").hasAnyRole("REPAR")
         .and()
             .formLogin()
             //.loginPage("/login")
