@@ -1,4 +1,4 @@
-package es.upm.dit.isst.ordermanager.Config;
+package es.upm.dit.isst.ordermanager.config;
 
 import javax.sql.DataSource;
 
