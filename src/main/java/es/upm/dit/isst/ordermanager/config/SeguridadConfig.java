@@ -34,12 +34,19 @@ public class SeguridadConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
     DataSource ds;
-
+/* 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.jdbcAuthentication().dataSource(ds)
             .usersByUsernameQuery("select nombreusuario, password, enabled from usuarios where nombreusuario=?")
             .authoritiesByUsernameQuery("select nombreusuario,rolusuario from roles where nombreusuario=?");
+    } */
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+        auth.inMemoryAuthentication()
+            .withUser("gestor").password(passwordEncoder().encode("gestor1")).roles("GESTOR").and()
+            .withUser("cliente").password(passwordEncoder().encode("cliente1")).roles("CLIENTE").and()
+            .withUser("repar").password(passwordEncoder().encode("repar1")).roles("REPAR");
     }
 
     @Override
@@ -49,9 +56,9 @@ public class SeguridadConfig extends WebSecurityConfigurerAdapter{
             .antMatchers("/h2/**","/api/**");
     }
 
-   /* @Bean
+    @Bean
     public PasswordEncoder passwordEncoder(){
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-    }*/
+    }
 
 }
