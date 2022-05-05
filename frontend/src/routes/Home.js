@@ -20,7 +20,7 @@ export default function Home() {
 		return response;
 	}
 	useEffect(()=>{
-		fetch('https://localhost:8080/api/pedido/create', {
+		fetch('https://localhost:8443/api/pedido/create', {
 			method:'POST', 
 			headers: {
 				'Accept': 'application/json',
