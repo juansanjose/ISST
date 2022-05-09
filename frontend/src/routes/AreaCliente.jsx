@@ -30,12 +30,12 @@ export default function AreaCliente() {
 			 )
 		});
 
-		fetch('/api/pedido/cliente/'+String(nombre))
+		fetch('http://localhost:8080/api/pedido/cliente/'+String(nombre))
 			.then(response => response.json())
 			.then(response => setPedido(response));
 		console.log(pedido);
 		
-	});
+	},[nombre]);
 	
 	/*constructor(props) {
 		super(props);

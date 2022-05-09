@@ -1,9 +1,7 @@
  import * as React from 'react';
- import {Button, Form, Table} from 'react-bootstrap';
- import { useContext } from 'react';
+
  import { useState, useEffect } from 'react';
- import {coordenadas} from '../assets/coordenadas.js';
- import { MapContainer, Marker, Popup, TileLayer,Polyline, useMap,Map    } from 'react-leaflet'
+ import { MapContainer, Marker,  TileLayer,Polyline, useMap    } from 'react-leaflet'
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
@@ -16,7 +14,6 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
     
     L.Marker.prototype.options.icon = DefaultIcon;
     const limeOptions = { color: 'lime' }
-    const purpleOptions = { color: 'purple' }
  
     const ruta=[];
     useEffect(()=>{
@@ -25,7 +22,6 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 			.then(response => setTrazas(response));
 
     },[trazas])
-   const position=[40.4525723157632,-3.7279164791107178]
 		
         
     trazas.map(traza =>(
@@ -33,7 +29,7 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
         
          
          ));
-     const position2 = [trazas[trazas.length-1]!=undefined ?trazas[trazas.length-1].latitud:40.4525723157632 , trazas[trazas.length-1]!=undefined?trazas[trazas.length-1].longitud:-3.7279164791107178 ]
+     const position2 = [trazas[trazas.length-1]!==undefined ?trazas[trazas.length-1].latitud:40.4525723157632 , trazas[trazas.length-1]!==undefined?trazas[trazas.length-1].longitud:-3.7279164791107178 ]
      function ChangeMapView({ coords }) {
       const map = useMap();
       map.setView(coords, map.getZoom());
