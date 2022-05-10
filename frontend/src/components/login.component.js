@@ -58,7 +58,7 @@ export default class Login extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.login(this.state.username, this.state.password).then(
         () => {
-          window.location.href ="http://localhost:8080/"
+          window.location.href ="https://localhost:8443/"
          //window.location.reload();
         },
         error => {

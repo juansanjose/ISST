@@ -13,7 +13,7 @@ export default function AreaCliente() {
     }
 	const currentUser = AuthService.getCurrentUser();
 	useEffect(() => { 
-		fetch('http://localhost:8080/api/pedido/create', {
+		fetch('https://localhost:8443/api/pedido/create', {
 			method:'POST', 
 			headers: {
 				'Accept': 'application/json',
@@ -31,7 +31,7 @@ export default function AreaCliente() {
 			 )
 		});
 
-		fetch(`http://localhost:8080/api/pedido/cliente/${currentUser.username}`)
+		fetch(`https://localhost:8443/api/pedido/cliente/${currentUser.username}`)
 			.then(response => response.json())
 			.then(response => setPedido(response));
 		console.log(pedido);

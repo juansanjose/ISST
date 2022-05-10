@@ -58,7 +58,7 @@ export default class Home extends Component {
 			});
 		  }
 		);
-		fetch('http://localhost:8080/api/pedido/create', {
+		fetch('https://localhost:8443/api/pedido/create', {
 			method:'POST', 
 			headers: {
 				'Accept': 'application/json',
