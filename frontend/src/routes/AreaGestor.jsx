@@ -5,6 +5,8 @@ import {Link } from "react-router-dom";
 
 export default function AreaGestor () {
 	const [pedido, setPedido] = useState([]);
+	const [user, setUser] = useState([]);
+
 	const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -16,8 +18,13 @@ export default function AreaGestor () {
 		fetch('/api/pedido/all')
 			.then(response => response.json())
 			.then(response => setPedido(response));
-		console.log(pedido);
-	});
+		fetch('/api/test/all')
+		
+			.then(response => response.json())
+			.then(response => setUser(response))
+			.then(response=>console.log(response));
+		
+	},[]);
 	const pedidosList = pedido.map(pedido => {
 		return <tr key={pedido.cliente}>
                 <td style={{whiteSpace: 'nowrap'}}>{pedido.id}</td>
@@ -27,6 +34,13 @@ export default function AreaGestor () {
 				<td>{pedido.origen}</td>
                 <td>opinion</td>
         </tr>
+    });
+	const userList = user.map(user => {
+		return <tr key={user.cliente}>
+                <td style={{whiteSpace: 'nowrap'}}>{user.id}</td>
+                {/* <td>{user.roles}</td> */}
+                <td>{user.username}</td>
+                </tr>
     });
   return (
 	<div>
@@ -52,42 +66,19 @@ export default function AreaGestor () {
 		</tbody>
 		</Table>
 		
-		<div><h2 style={{display: "inline"}}>REPARTIDORES</h2><Link to="/registrorepartidor">Añadir</Link></div>
+		<div><h2 style={{display: "inline"}}>Usuarios</h2><Link to="/registrorepartidor">Añadir</Link></div>
 		<Table className="bg-light">
 		<thead>
 			<tr>
-				<th>ID repartidor</th>
+				<th>ID </th>
 
+				{/* <th>Rol</th> */}
 				<th>Nombre</th>
 
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td><Link to="/perfilrepartidor">1</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-			</tr>
-			<tr>
-				<td><Link to="/perfilrepartidor">2</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-			</tr>
-			<tr>
-				<td><Link to="/perfilrepartidor">3</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-			</tr>
-			<tr>
-				<td><Link to="/perfilrepartidor">4</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-			</tr>
-			<tr>
-				<td><Link to="/perfilrepartidor">5</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-			</tr>
-			<tr>
-				<td><Link to="/perfilrepartidor">6</Link></td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing. </td>
-			</tr>
-			
+			{userList}	
 		</tbody>
 		</Table>
 		
