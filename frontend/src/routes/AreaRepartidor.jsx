@@ -15,13 +15,30 @@ export default function AreaRepartidor() {
 	const currentUser = AuthService.getCurrentUser();
 
 	useEffect(() => { 
+		fetch('https://localhost:8443/api/pedido/create', {
+			method:'POST', 
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				id:"prueba",
+				origen:"dfdfdf",
+				destino:"sdfsdfsdf",
+			   estado:"En tránsito",
+			   idvehiculo:"2323123123",
+			   repartidor:currentUser.username,
+				cliente: "dumbo"
+			}
+			 )
+		});
 		
 		// Update the document title using the browser API
 		fetch('/api/pedido/repartidor/'+String(currentUser.username))
 			.then(response => response.json())
 			.then(response => setPedido(response));
 		console.log(pedido);
-	});
+	},[]);
 
 	const pedidosList = pedido.map(pedido => {
 		return <tr key={pedido.repartidor}>

@@ -48,7 +48,7 @@ class App extends Component {
 		if (user) {
 		  this.setState({
 			currentUser: user,
-			showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
+			showModeratorBoard: user.roles.includes("ROLE_REPARTIDOR"),
 			showAdminBoard: user.roles.includes("ROLE_ADMIN"),
 		  });
 		}
@@ -91,7 +91,7 @@ class App extends Component {
       </>
 
       )}
-        { currentUser ?(
+        { currentUser && !showModeratorBoard && !showAdminBoard ?(
           <>
       <Nav.Link as={Link} to="/areacliente">arecliente</Nav.Link>
       
@@ -102,7 +102,7 @@ class App extends Component {
         }
       {
         showModeratorBoard ? (<>
-        <Nav.Link as={Link} to="/arearepartidor">areagestor</Nav.Link>
+        <Nav.Link as={Link} to="/arearepartidor">arearepartidor</Nav.Link>
         
         </>
         ):(

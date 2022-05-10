@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.annotation.Secured;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +38,7 @@ public class PedidoController {
     }
 
     @GetMapping("/api/pedido/all")
-    // @Secured("hasRole('ROLE_ADMIN')")
+    // @PreAuthorize("hasRole('ADMIN')")
     List<Pedido> readAll() {
 
       return (List<Pedido>) pedidoRepository.findAll();
@@ -46,7 +48,7 @@ public class PedidoController {
  
 
     @PostMapping("/api/pedido/create")
-    // @PreAuthorize("hasAnyRole('ADMIN','REPARTIDOR','USER')")
+
     ResponseEntity<Pedido> create(@RequestBody Pedido newPedido) throws URISyntaxException {
 
       Pedido result = pedidoRepository.save(newPedido);

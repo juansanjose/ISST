@@ -1,8 +1,8 @@
 package es.upm.dit.isst.ordermanager.model;
 
 public enum ERole {
-        USER,
-        REPARTIDOR,
-        ADMIN
+        ROLE_USER,
+       ROLE_REPARTIDOR,
+        ROLE_ADMIN
       
 }
