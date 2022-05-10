@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Button, ButtonGroup, Container, Table, Form} from 'react-bootstrap'; 
 import {Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import AuthService from "../services/auth.service";
 
 export default function AreaCliente() {
 	const [nombre, setNombre] = useState("");
@@ -10,7 +11,7 @@ export default function AreaCliente() {
         e.preventDefault();
 
     }
-
+	const currentUser = AuthService.getCurrentUser();
 	useEffect(() => { 
 		fetch('http://localhost:8080/api/pedido/create', {
 			method:'POST', 
@@ -25,12 +26,12 @@ export default function AreaCliente() {
 			   estado:"En tránsito",
 			   idvehiculo:"2323123123",
 			   repartidor:"juan",
-				cliente:"juan"
+				cliente: currentUser.username
 			}
 			 )
 		});
 
-		fetch('http://localhost:8080/api/pedido/cliente/'+String(nombre))
+		fetch(`http://localhost:8080/api/pedido/cliente/${currentUser.username}`)
 			.then(response => response.json())
 			.then(response => setPedido(response));
 		console.log(pedido);
@@ -60,7 +61,7 @@ function buscarPedido(){}
 	const pedidosList = pedido.map(pedido => {
 		return <tr key={pedido.cliente}>
                 <td style={{whiteSpace: 'nowrap'}}>{pedido.id}</td>
-                <td><Button as={Link}  to={{pathname: `/seguimientocliente/${pedido.id}`}} variant="success"className=" col-2 py-4" type="submit">{pedido.estado}</Button></td>
+                <td><Button as={Link}  to={{pathname: `/seguimientocliente/${pedido.id}`}} variant="success" type="submit">{pedido.estado}</Button></td>
                 <td>{pedido.repartidor}</td>
                 <td>{pedido.destino}</td>
 				<td>{pedido.origen}</td>
@@ -71,8 +72,8 @@ function buscarPedido(){}
 	return (
      <div>
 		<Container fluid>
-			<h2>HISTORIAL DE PEDIDOS DEL CLIENTE: {nombre}</h2>
-		<div>
+			<h2>HISTORIAL DE PEDIDOS DEL CLIENTE: {currentUser.username}</h2>
+		{/* <div>
             <form className='form' onSubmit={handleSubmit}>
                 <div className='form-control'>
                     <label htmlFor='firstName'>Name: </label>
@@ -80,13 +81,13 @@ function buscarPedido(){}
                         type='text'
                         id='nombre'
                         name='nombre'
-                        value={nombre}
-                        onChange={(e) => setNombre(e.target.value)}
+                         value={nombre}
+                         onChange={(e) => setNombre(e.target.value)}
                     />
                 </div>
                 <button type='submit' >Buscar</button>
             </form>
-        </div>
+        </div> */}
 			<Table className="bg-light">
 				<thead>
 					<tr>

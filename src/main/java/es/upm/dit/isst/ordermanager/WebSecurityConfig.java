@@ -56,27 +56,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 public void configure(WebSecurity web) throws Exception {
     web
         .ignoring()
-            .antMatchers( "/css/**", "/js/**", "/img/**", "/bootstrap/**","/favicon.ico","/static/**");
+            .antMatchers( "/css/**", "/js/**", "/img/**", "/bootstrap/**","/favicon.ico","/static/**","/manifest.json","/logo**");
 }
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.cors().and().csrf().disable()
+
     .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
     .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+    
     .authorizeRequests()
-      .antMatchers("/","/home","/register","/api/auth/**").permitAll()
-      .antMatchers("/areagestor").hasAnyRole("ROLE_ADMIN")
-      .antMatchers("/perfilparticular","/seguimientocliente/**","/areacliente/**","/rutarepartidor/:id","/profile/**").hasAnyRole("ROLE_ADMIN","ROLE_USER")
-      .antMatchers("/arearepartidor","/arearepartidorconfirmar","/arearepartidorfinalizar","/perfilrepartidor","/rutarepartidor/:id","/profile").hasAnyRole("ROLE_ADMIN","ROLE_MOD")
-     .anyRequest().authenticated()
-     .and().formLogin(form -> form
-			.loginPage("/login")
-			.permitAll()
-		);
+      .antMatchers("/","/home","/register","/api/auth/**","/login","/api/**").permitAll()
+      .antMatchers("/areagestor").hasRole("ADMIN")
+      .antMatchers("/perfilparticular","/seguimientocliente/**","/areacliente/**","/rutarepartidor/**","/profile/**","/arearepartidor","/arearepartidorconfirmar","/arearepartidorfinalizar","/perfilrepartidor","/rutarepartidor/**").hasAnyRole("ADMIN","USER","REPARTIDOR")
+      
+     .anyRequest().authenticated();
+     
+     
+     
+
+      http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+
+		
     
 
-  http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 }
 }
 

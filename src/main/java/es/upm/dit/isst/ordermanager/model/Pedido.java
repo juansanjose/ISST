@@ -1,9 +1,7 @@
 package es.upm.dit.isst.ordermanager.model;
 
-import java.util.Set;
 
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @javax.persistence.Entity
 public class Pedido {

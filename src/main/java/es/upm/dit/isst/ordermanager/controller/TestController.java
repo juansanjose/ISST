@@ -21,26 +21,22 @@ public class TestController {
   UserRepository userRepository;
 
   @GetMapping("/all")
-  @Secured("hasRole('ROLE_ADMIN')")
+  // @Secured("hasRole('ROLE_ADMIN')")
   public List<User> allAccess() {
 
     return (List<User>) userRepository.findAll() ;
   }
 
   @GetMapping("/user")
-  @PreAuthorize("hasRole('ROLE_USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+   @PreAuthorize("hasRole('USER') or hasRole('REPARTIDOR') or hasRole('ADMIN')")
   public String userAccess() {
     return "User Content.";
   }
 
-  @GetMapping("/mod")
-  @PreAuthorize("hasRole('ROLE_MODERATOR')")
-  public String moderatorAccess() {
-    return "Moderator Board.";
-  }
+ 
 
   @GetMapping("/admin")
-  @PreAuthorize("hasRole('ROLE_ADMIN')")
+  // @PreAuthorize("hasRole('ROLE_ADMIN')")
   public String adminAccess() {
     return "Admin Board.";
   }
