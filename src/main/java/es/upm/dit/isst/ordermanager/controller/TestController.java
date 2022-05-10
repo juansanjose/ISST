@@ -21,7 +21,7 @@ public class TestController {
   UserRepository userRepository;
 
   @GetMapping("/all")
-  // @Secured("hasRole('ROLE_ADMIN')")
+  @PreAuthorize("hasRole('ADMIN') ")
   public List<User> allAccess() {
 
     return (List<User>) userRepository.findAll() ;

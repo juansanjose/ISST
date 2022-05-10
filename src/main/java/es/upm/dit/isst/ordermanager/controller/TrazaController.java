@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,6 +32,7 @@ public class TrazaController {
     }
 
     @GetMapping("/api/traza/pedido/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN','USER','REPARTIDOR') ")
 
     List<Traza> readPedido(@PathVariable String id) {
 
@@ -38,6 +40,7 @@ public class TrazaController {
 
     }
     @PostMapping("/api/traza/create")
+    @PreAuthorize("hasAnyRole('ADMIN','USER','REPARTIDOR') ")
 
     ResponseEntity<Traza> create(@RequestBody Traza newTraza) throws URISyntaxException {
 

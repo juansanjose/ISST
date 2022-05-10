@@ -3,6 +3,7 @@ import {Button, ButtonGroup, Container, Table, Form} from 'react-bootstrap';
 import {Link} from "react-router-dom";
 import {useState, useEffect} from 'react';
 import AuthService from "../services/auth.service";
+import authHeader from '../services/auth-header';
 
 export default function AreaRepartidor() {
 	const [nombre, setNombre] = useState("");
@@ -17,10 +18,9 @@ export default function AreaRepartidor() {
 	useEffect(() => { 
 		fetch('https://localhost:8443/api/pedido/create', {
 			method:'POST', 
-			headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json'
-			},
+			headers: 
+				authHeader()
+			,
 			body: JSON.stringify({
 				id:"prueba",
 				origen:"dfdfdf",
@@ -34,7 +34,11 @@ export default function AreaRepartidor() {
 		});
 		
 		// Update the document title using the browser API
-		fetch('/api/pedido/repartidor/'+String(currentUser.username))
+		fetch('/api/pedido/repartidor/'+String(currentUser.username),
+		{
+			headers:authHeader()
+		}
+		)
 			.then(response => response.json())
 			.then(response => setPedido(response));
 		console.log(pedido);

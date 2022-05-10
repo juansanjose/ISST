@@ -7,6 +7,9 @@ import UserService from "../services/user.service";
 import { render } from 'react-dom';
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 import  { Component } from "react";
+import axios from 'axios';
+import authHeader from '../services/auth-header';
+
 
 export default class Home extends Component {
 	constructor(props) {
@@ -60,10 +63,9 @@ export default class Home extends Component {
 		);
 		fetch('https://localhost:8443/api/pedido/create', {
 			method:'POST', 
-			headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json'
-			},
+			headers: 
+				authHeader()
+			,
 			body: JSON.stringify({
 				id:"prueba",
 				origen:"dfdfdf",

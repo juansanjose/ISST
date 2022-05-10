@@ -3,6 +3,7 @@ import {Button, ButtonGroup, Container, Table, Form} from 'react-bootstrap';
 import {Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import AuthService from "../services/auth.service";
+import authHeader from '../services/auth-header';
 
 export default function AreaCliente() {
 	const [nombre, setNombre] = useState("");
@@ -15,10 +16,9 @@ export default function AreaCliente() {
 	useEffect(() => { 
 		fetch('https://localhost:8443/api/pedido/create', {
 			method:'POST', 
-			headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json'
-			},
+			headers: 
+				authHeader()
+			,
 			body: JSON.stringify({
 				id:"prueba",
 				origen:"dfdfdf",
@@ -31,7 +31,10 @@ export default function AreaCliente() {
 			 )
 		});
 
-		fetch(`https://localhost:8443/api/pedido/cliente/${currentUser.username}`)
+		fetch(`https://localhost:8443/api/pedido/cliente/${currentUser.username}`,
+		{headers: 
+				authHeader()
+		})
 			.then(response => response.json())
 			.then(response => setPedido(response));
 		console.log(pedido);

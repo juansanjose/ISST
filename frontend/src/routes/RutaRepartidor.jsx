@@ -5,6 +5,8 @@
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import authHeader from '../services/auth-header';
+
  export default function RutaRepartidor(props){
    const [trazas,setTrazas]=useState([])
     let DefaultIcon = L.icon({
@@ -17,7 +19,11 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
  
     const ruta=[];
     useEffect(()=>{
-      fetch(`/api/traza/pedido/${props.pedido.id}`)
+      fetch(`/api/traza/pedido/${props.pedido.id}`,
+      {
+        headers:authHeader()
+      }
+      )
 			.then(response => response.json())
 			.then(response => setTrazas(response));
 

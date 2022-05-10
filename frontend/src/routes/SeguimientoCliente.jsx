@@ -9,6 +9,7 @@ import almacen from '../assets/salida_almacen.png';
 import RutaRepartidor from './RutaRepartidor';
 import {coordenadas} from '../assets/coordenadas.js';
 import {  useParams } from 'react-router-dom';
+import authHeader from '../services/auth-header';
 
 export default function SeguimientoCliente() {
  //hooks con las propiedadades del item para crear
@@ -44,7 +45,9 @@ export default function SeguimientoCliente() {
   
 
 useEffect(() => {
-	fetch(`/api/pedido/${id}`)
+	fetch(`/api/pedido/${id}`,{
+		header:	authHeader()
+	})
 		.then(response => response.json())
 		.then(response=> setPedido(response))
 		console.log(pedido)
@@ -67,10 +70,9 @@ useEffect(() => {
 	 .then(response=> setUbicacion(String(response.address.road)))
 	 fetch('/api/traza/create', {
 		method:'POST', 
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		},
+		headers: 
+				authHeader()
+		,
 		body: JSON.stringify(traza),
 	}).then(setIdTraza(uuidv4()));
   		

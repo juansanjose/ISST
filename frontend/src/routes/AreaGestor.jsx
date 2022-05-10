@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Table} from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import {Link } from "react-router-dom";
+import authHeader from '../services/auth-header';
 
 export default function AreaGestor () {
 	const [pedido, setPedido] = useState([]);
@@ -15,10 +16,14 @@ export default function AreaGestor () {
 	useEffect(() => { 
 		
 		// Update the document title using the browser API
-		fetch('/api/pedido/all')
+		fetch('/api/pedido/all',{headers: 
+			authHeader()
+	})
 			.then(response => response.json())
 			.then(response => setPedido(response));
-		fetch('/api/test/all')
+		fetch('/api/test/all',{headers: 
+			authHeader()
+	})
 		
 			.then(response => response.json())
 			.then(response => setUser(response))
