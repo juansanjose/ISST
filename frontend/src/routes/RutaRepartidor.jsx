@@ -19,7 +19,7 @@ import authHeader from '../services/auth-header';
  
     const ruta=[];
     useEffect(()=>{
-      fetch(`/api/traza/pedido/${props.pedido.id}`,
+      fetch(`https://localhost:8443/api/traza/pedido/${props.pedido.id}`,
       {
         headers:authHeader()
       }

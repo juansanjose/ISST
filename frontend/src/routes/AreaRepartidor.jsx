@@ -34,7 +34,7 @@ export default function AreaRepartidor() {
 		});
 		
 		// Update the document title using the browser API
-		fetch('/api/pedido/repartidor/'+String(currentUser.username),
+		fetch('https://localhost:8443/api/pedido/repartidor/'+String(currentUser.username),
 		{
 			headers:authHeader()
 		}

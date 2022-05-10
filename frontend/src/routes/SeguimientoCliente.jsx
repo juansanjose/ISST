@@ -42,15 +42,17 @@ export default function SeguimientoCliente() {
   let {id}=useParams();
 
 
-  
-
-useEffect(() => {
-	fetch(`/api/pedido/${id}`,{
-		header:	authHeader()
+  //
+useEffect(()=>{
+	fetch(`https://localhost:8443/api/pedido/${id}`,{
+		headers:	authHeader()
 	})
 		.then(response => response.json())
 		.then(response=> setPedido(response))
 		console.log(pedido)
+},[])
+useEffect(() => {
+	
    const interval = setInterval(() => setTime(new Date().toISOString())
    , 1000);
    
@@ -68,6 +70,10 @@ useEffect(() => {
 	fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitud}&lon=${longitud}&format=json`)
 	 .then(response => response.json())
 	 .then(response=> setUbicacion(String(response.address.road)))
+	 
+	 
+	 
+	 
 	 fetch('/api/traza/create', {
 		method:'POST', 
 		headers: 

@@ -43,7 +43,7 @@ public class PedidoController {
 
     @GetMapping("/api/pedido/all")
      @PreAuthorize("hasRole('ADMIN')")
-    List<Pedido> readAll() {
+     public List<Pedido> readAll() {
 
       return (List<Pedido>) pedidoRepository.findAll();
 
@@ -64,7 +64,7 @@ public class PedidoController {
 
     @GetMapping("/api/pedido/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','USER','REPARTIDOR') ")
-    ResponseEntity<Pedido> read(@PathVariable String id) {
+    public ResponseEntity<Pedido> read(@PathVariable String id) {
 
       return pedidoRepository.findById(id).map(pedido ->
 
@@ -76,7 +76,7 @@ public class PedidoController {
 
     @PutMapping("/api/pedido/change/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','REPARTIDOR') ")
-    ResponseEntity<Pedido> update(@RequestBody Pedido newPedido, @PathVariable String id) {
+    public ResponseEntity<Pedido> update(@RequestBody Pedido newPedido, @PathVariable String id) {
 
       return pedidoRepository.findById(id).map(pedido -> {
 
@@ -100,7 +100,7 @@ public class PedidoController {
 
     @DeleteMapping("/api/pedido/delete/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','REPARTIDOR') ")
-    ResponseEntity<Pedido> delete(@PathVariable String id) {
+    public ResponseEntity<Pedido> delete(@PathVariable String id) {
 
       pedidoRepository.deleteById(id);
 
@@ -110,7 +110,7 @@ public class PedidoController {
 //El ID es el nombre del cliente (creo)
     @GetMapping("/api/pedido/cliente/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','USER','REPARTIDOR') ")
-    List<Pedido> readCliente(@PathVariable String id) {
+    public List<Pedido> readCliente(@PathVariable String id) {
 
       return (List<Pedido>) pedidoRepository.findByCliente(id);
 
@@ -118,7 +118,7 @@ public class PedidoController {
 //El ID es el nombre del repartidor (creo)
     @GetMapping("/api/pedido/repartidor/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','USER','REPARTIDOR') ")
-    List<Pedido> readRepartidor(@PathVariable String id) {
+    public List<Pedido> readRepartidor(@PathVariable String id) {
 
       return (List<Pedido>) pedidoRepository.findByRepartidor(id);
 
@@ -126,7 +126,7 @@ public class PedidoController {
 //Para el estado
     @PostMapping("/api/pedido/{id}/increment")
     @PreAuthorize("hasAnyRole('ADMIN','USER','REPARTIDOR') ")
-    ResponseEntity<Pedido> incrementa(@PathVariable String id) {
+    public ResponseEntity<Pedido> incrementa(@PathVariable String id) {
 
       return pedidoRepository.findById(id).map(pedido -> {
 

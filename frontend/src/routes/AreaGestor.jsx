@@ -16,12 +16,13 @@ export default function AreaGestor () {
 	useEffect(() => { 
 		
 		// Update the document title using the browser API
-		fetch('/api/pedido/all',{headers: 
+		fetch('https://localhost:8443/api/pedido/all',{headers: 
 			authHeader()
 	})
 			.then(response => response.json())
 			.then(response => setPedido(response));
-		fetch('/api/test/all',{headers: 
+		fetch('https://localhost:8443/api/test/all',{
+			headers: 
 			authHeader()
 	})
 		

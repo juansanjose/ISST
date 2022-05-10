@@ -39,6 +39,9 @@ export default function AreaCliente() {
 			.then(response => setPedido(response));
 		console.log(pedido);
 		
+		
+		
+		
 	},[]);
 	
 	/*constructor(props) {

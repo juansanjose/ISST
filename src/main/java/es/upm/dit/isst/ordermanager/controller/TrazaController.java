@@ -34,7 +34,7 @@ public class TrazaController {
     @GetMapping("/api/traza/pedido/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','USER','REPARTIDOR') ")
 
-    List<Traza> readPedido(@PathVariable String id) {
+    public List<Traza> readPedido(@PathVariable String id) {
 
       return (List<Traza>) trazaRepository.findByPedidoId(id);
 
@@ -42,7 +42,7 @@ public class TrazaController {
     @PostMapping("/api/traza/create")
     @PreAuthorize("hasAnyRole('ADMIN','USER','REPARTIDOR') ")
 
-    ResponseEntity<Traza> create(@RequestBody Traza newTraza) throws URISyntaxException {
+    public ResponseEntity<Traza> create(@RequestBody Traza newTraza) throws URISyntaxException {
 
       Traza result = trazaRepository.save(newTraza);
 

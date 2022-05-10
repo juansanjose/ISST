@@ -74,7 +74,7 @@ public void configure(WebSecurity web) throws Exception {
     .authorizeRequests()
       .antMatchers("/","/home","/register","/api/auth/**","/login","/api/**").permitAll()
       .antMatchers("/areagestor").hasRole("ADMIN")
-      .antMatchers("/perfilparticular","/seguimientocliente/**","/areacliente/**","/rutarepartidor/**","/profile/**","/arearepartidor","/arearepartidorconfirmar","/arearepartidorfinalizar","/perfilrepartidor","/rutarepartidor/**").hasAnyRole("ADMIN","USER","REPARTIDOR")
+      .antMatchers("/perfilparticular","/seguimientocliente/**","/areacliente/**","/rutarepartidor/**","/profile/**","/arearepartidor","/arearepartidorconfirmar","/arearepartidorfinalizar","/perfilrepartidor","/rutarepartidor/**","/pedidos/**").hasAnyRole("ADMIN","USER","REPARTIDOR")
       
      .anyRequest().authenticated();
      
